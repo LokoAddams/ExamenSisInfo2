@@ -1,0 +1,46 @@
+{
+	"name": "DIM_UBICACION",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "UBICACION_ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CITY_CENTER_DISTANCE_KM",
+				"type": "decimal",
+				"precision": 6,
+				"scale": 3
+			},
+			{
+				"name": "METRO_DISTANCE_KM",
+				"type": "decimal",
+				"precision": 6,
+				"scale": 3
+			},
+			{
+				"name": "NORMALISED_ATTRACTION_INDEX",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 6
+			},
+			{
+				"name": "NORMALISED_RESTRAUNT_INDEX",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 6
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DIM_UBICACION"
+		}
+	}
+}
