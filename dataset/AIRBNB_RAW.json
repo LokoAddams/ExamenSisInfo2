@@ -1,0 +1,98 @@
+{
+	"name": "AIRBNB_RAW",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "RAW_ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PRECIO",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "CLEANLINESS_RATING",
+				"type": "decimal",
+				"precision": 3,
+				"scale": 1
+			},
+			{
+				"name": "GUEST_SATISFACTION",
+				"type": "decimal",
+				"precision": 3,
+				"scale": 1
+			},
+			{
+				"name": "NOMBRE_CIUDAD",
+				"type": "varchar"
+			},
+			{
+				"name": "NOMBRE_DIA",
+				"type": "varchar"
+			},
+			{
+				"name": "TIPO",
+				"type": "varchar"
+			},
+			{
+				"name": "PERSON_CAPACITY",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "BEDROOMS",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "MULTIPLE_ROOMS",
+				"type": "bit"
+			},
+			{
+				"name": "SUPERHOST",
+				"type": "bit"
+			},
+			{
+				"name": "BUSINESS",
+				"type": "bit"
+			},
+			{
+				"name": "CITY_CENTER_DISTANCE_KM",
+				"type": "decimal",
+				"precision": 6,
+				"scale": 3
+			},
+			{
+				"name": "METRO_DISTANCE_KM",
+				"type": "decimal",
+				"precision": 6,
+				"scale": 3
+			},
+			{
+				"name": "NORMALISED_ATTRACTION_INDEX",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 6
+			},
+			{
+				"name": "NORMALISED_RESTRAUNT_INDEX",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 6
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AIRBNB_RAW"
+		}
+	}
+}
