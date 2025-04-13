@@ -1,12 +1,12 @@
 {
-	"name": "DIM_HOST",
+	"name": "HECHOS_AIRBNB",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DIM_HOST",
+						"referenceName": "HECHOS_AIRBNB",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DIM_HOST",
+						"referenceName": "HECHOS_AIRBNB",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -28,29 +28,48 @@
 			],
 			"scriptLines": [
 				"source(output(",
+				"          HECHO_ID as integer,",
+				"          PRECIO as decimal(10,2),",
+				"          CLEANLINESS_RATING as integer,",
+				"          GUEST_SATISFACTION as integer,",
+				"          CIUDAD_ID as integer,",
+				"          DIA_ID as integer,",
+				"          TIPO_HABITACION_ID as integer,",
 				"          HOST_ID as integer,",
-				"          SUPERHOST as boolean,",
-				"          BUSINESS as boolean",
+				"          UBICACION_ID as integer",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     procedureName: 'usp_InsertDimHost',",
+				"     procedureName: 'usp_InsertHechos',",
 				"     schemaName: 'dbo',",
 				"     resultSet: true,",
 				"     format: 'procedure') ~> source1",
 				"source1 select(mapColumn(",
-				"          SUPERHOST,",
-				"          BUSINESS",
+				"          HECHO_ID,",
+				"          PRECIO,",
+				"          CLEANLINESS_RATING,",
+				"          GUEST_SATISFACTION,",
+				"          CIUDAD_ID,",
+				"          DIA_ID,",
+				"          TIPO_HABITACION_ID,",
+				"          HOST_ID,",
+				"          UBICACION_ID",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
 				"select1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
+				"          HECHO_ID as integer,",
+				"          PRECIO as decimal(10,2),",
+				"          CLEANLINESS_RATING as integer,",
+				"          GUEST_SATISFACTION as integer,",
+				"          CIUDAD_ID as integer,",
+				"          DIA_ID as integer,",
+				"          TIPO_HABITACION_ID as integer,",
 				"          HOST_ID as integer,",
-				"          SUPERHOST as boolean,",
-				"          BUSINESS as boolean",
+				"          UBICACION_ID as integer",
 				"     ),",
 				"     deletable:false,",
 				"     insertable:true,",

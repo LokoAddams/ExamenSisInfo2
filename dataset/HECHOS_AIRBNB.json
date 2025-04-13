@@ -1,0 +1,63 @@
+{
+	"name": "HECHOS_AIRBNB",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "HECHO_ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PRECIO",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "CLEANLINESS_RATING",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "GUEST_SATISFACTION",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CIUDAD_ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DIA_ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TIPO_HABITACION_ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "HOST_ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "UBICACION_ID",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "HECHOS_AIRBNB"
+		}
+	}
+}
