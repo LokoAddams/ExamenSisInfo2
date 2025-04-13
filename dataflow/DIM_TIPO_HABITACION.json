@@ -1,0 +1,89 @@
+{
+	"name": "DIM_TIPO_HABITACION",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "AIRBNB_RAW",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DIM_TIPO_HABITACION",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "select1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          RAW_ID as integer,",
+				"          PRECIO as decimal(10,2),",
+				"          CLEANLINESS_RATING as decimal(3,1),",
+				"          GUEST_SATISFACTION as decimal(3,1),",
+				"          NOMBRE_CIUDAD as string,",
+				"          NOMBRE_DIA as string,",
+				"          TIPO as string,",
+				"          PERSON_CAPACITY as integer,",
+				"          BEDROOMS as integer,",
+				"          MULTIPLE_ROOMS as boolean,",
+				"          SUPERHOST as boolean,",
+				"          BUSINESS as boolean,",
+				"          CITY_CENTER_DISTANCE_KM as decimal(6,3),",
+				"          METRO_DISTANCE_KM as decimal(6,3),",
+				"          NORMALISED_ATTRACTION_INDEX as decimal(10,6),",
+				"          NORMALISED_RESTRAUNT_INDEX as decimal(10,6)",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     procedureName: 'usp_InsertDimTipoHabitacion',",
+				"     schemaName: 'dbo',",
+				"     resultSet: true,",
+				"     format: 'procedure') ~> source1",
+				"source1 select(mapColumn(",
+				"          TIPO,",
+				"          PERSON_CAPACITY,",
+				"          BEDROOMS,",
+				"          MULTIPLE_ROOMS",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          TIPO_HABITACION_ID as integer,",
+				"          TIPO as string,",
+				"          PERSON_CAPACITY as integer,",
+				"          BEDROOMS as integer,",
+				"          MULTIPLE_ROOMS as boolean",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          TIPO,",
+				"          PERSON_CAPACITY,",
+				"          BEDROOMS,",
+				"          MULTIPLE_ROOMS",
+				"     )) ~> sink1"
+			]
+		}
+	}
+}

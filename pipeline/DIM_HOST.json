@@ -1,5 +1,5 @@
 {
-	"name": "DIM_UBICACION",
+	"name": "DIM_HOST",
 	"properties": {
 		"activities": [
 			{
@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "DIM_UBICACION",
+						"referenceName": "DIM_HOST",
 						"type": "DataFlowReference"
 					},
 					"compute": {

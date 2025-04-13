@@ -1,0 +1,30 @@
+{
+	"name": "DIM_HOST",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "HOST_ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SUPERHOST",
+				"type": "bit"
+			},
+			{
+				"name": "BUSINESS",
+				"type": "bit"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DIM_HOST"
+		}
+	}
+}

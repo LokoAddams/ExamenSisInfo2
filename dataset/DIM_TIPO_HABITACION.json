@@ -1,0 +1,40 @@
+{
+	"name": "DIM_TIPO_HABITACION",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "TIPO_HABITACION_ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TIPO",
+				"type": "varchar"
+			},
+			{
+				"name": "PERSON_CAPACITY",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "BEDROOMS",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "MULTIPLE_ROOMS",
+				"type": "bit"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DIM_TIPO_HABITACION"
+		}
+	}
+}

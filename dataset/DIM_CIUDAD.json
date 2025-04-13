@@ -1,0 +1,26 @@
+{
+	"name": "DIM_CIUDAD",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "CIUDAD_ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "NOMBRE_CIUDAD",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DIM_CIUDAD"
+		}
+	}
+}
